@@ -1,5 +1,5 @@
 exe:	main.o Items.o Jugador.o Bombas.o Tablero.o
-	g++ main.o Items.o Jugador.o Bombas.o Tablero.o -o exe
+	g++ main.o Items.o Jugador.o Bombas.o Tablero.o -lncurses -o exe
 	rm *.o
 main.o:	main.cpp Items.h Jugador.h Bombas.h Tablero.h 
 	g++ -c main.cpp

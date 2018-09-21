@@ -1,5 +1,5 @@
 #include "Tablero.h"
-#include "Jugador.h"
+
 
 Tablero::Tablero(){
     Matrix = new Items **[11];
@@ -37,6 +37,7 @@ void Tablero::printMatrix(){
     for (int i = 0; i < 11; i++){
         for (int j = 0; j < 13; j++){
             cout<<"["<<Matrix[i][j]->toString()<<"]";
+            //cout<<Matrix[0][0] = "Y";
             /*if (i % 2 != 0 && j % 2 != 0){
                 cout<<Matrix[i][j]->toString();
             }*/
