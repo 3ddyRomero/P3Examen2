@@ -2,6 +2,7 @@
 #define TABLERO_H
 
 #include "Items.h"
+#include "Jugador.h"
 
 #include <iostream>
 #include <string>
@@ -14,12 +15,12 @@ class Tablero : Items {
     
     public:
         Tablero();
-    
-        void setMatrix(Items*, int, int);
+
         Items*** getMatrix();
+        void setMatrix(Items*, int, int);
+
+        void printMatrix(); 
         
         ~Tablero();
-
-
 };
 #endif

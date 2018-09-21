@@ -24,12 +24,15 @@ void Jugador::setNombre(string pNombre){
 }
 
 int Jugador::getEstado(){
+    if(Estado==1){
+        cout<<"Vivo";
+    }else{
+        cout<<"Muerto";
+    }
     return Estado;
 }
 
-void Jugador::setEstado(int pEstado)
-{
-
+void Jugador::setEstado(int pEstado){
     Estado = pEstado;
 }
 

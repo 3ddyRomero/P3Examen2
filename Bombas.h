@@ -10,7 +10,7 @@ using namespace std;
 
 class Bombas : Items{
     private:
-        int conta = 1;
+        int conta;
     public:
         Bombas();
         Bombas(int,int,int,int);
@@ -19,7 +19,7 @@ class Bombas : Items{
         void setContador(int);
 
 	string toString();
-    
+
     ~Bombas();
 
 

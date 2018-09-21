@@ -1,4 +1,5 @@
 #include "Tablero.h"
+#include "Jugador.h"
 
 Tablero::Tablero(){
     Matrix = new Items **[11];
@@ -13,6 +14,7 @@ Tablero::Tablero(){
         }
     }
 
+    //Imprimir Obstaculos
     for (int i = 0; i < 11; i++){
         for (int j = 0; j < 13; j++){
             if (i % 2 != 0 && j % 2 != 0){
@@ -20,4 +22,33 @@ Tablero::Tablero(){
             }
         }
     }
+}
+
+void Tablero::setMatrix(Items* Obj, int i, int j){
+    Matrix[i][j] = Obj;
+}
+
+Items*** Tablero::getMatrix(){
+    return Matrix;
+}
+
+void Tablero::printMatrix(){
+    
+    for (int i = 0; i < 11; i++){
+        for (int j = 0; j < 13; j++){
+            cout<<"["<<Matrix[i][j]->toString()<<"]";
+            /*if (i % 2 != 0 && j % 2 != 0){
+                cout<<Matrix[i][j]->toString();
+            }*/
+        }cout<<endl;
+    }
+
+    //Imprimir Obstaculos
+    /*for (int i = 0; i < 11; i++){
+        for (int j = 0; j < 13; j++){
+            if (i % 2 != 0 && j % 2 != 0){
+                cout<<Matrix[i][j]->toString();
+            }
+        }cout<<endl;
+    }*/
 }
