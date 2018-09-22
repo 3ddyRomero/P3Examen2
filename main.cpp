@@ -30,7 +30,7 @@ int main(){
     Jugador *jugadorbotd = new Jugador("Bot4",2,1,1,0,12);
 
    
-    tab->setMatrix((Items*)jugador, 0, 0);
+   // tab->setMatrix((Items*)jugador, 0, 0);
     tab->setMatrix((Items*)jugadorbota, 10, 0);
     tab->setMatrix((Items*)jugadorbotb, 10, 12);
     tab->setMatrix((Items*)jugadorbotc, 5, 6);
@@ -51,22 +51,44 @@ int main(){
     //key = getch();
 
     bool turno = false;
-    
-
+    int num;    
+    int a=0,b=1,c=2,d=3;
 
     while(!turno){
         int opcion;
-    int x;
-    int y;
+    int x = ((Items*)jugador)->getY();
+    int y = ((Items*)jugador)->getX();
+    tab->setMatrix((Items*)jugador, x, y);
         cout<<"Juegue"<<endl;
         cin>>key;
 
         if(key == 'w'){
+            if(((Items*)jugadorbota)->getY()-1 == -1){
+                tab->setMatrix((Items*)jugadorbota, x+1, y);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+
+            if(((Items*)jugadorbota)->getY()+1 == 13){
+                tab->setMatrix((Items*)jugadorbota, x-1, y);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+
+            if(((Items*)jugadorbota)->getX()-1 == -1){
+                tab->setMatrix((Items*)jugadorbota, x, y-1);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+            
+            if(((Items*)jugadorbota)->getX()+1 == 13){
+                tab->setMatrix((Items*)jugadorbota, x, y-1);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+
             if(((Items*)jugador)->getY()-1 == -1 ){
                 cout<<"Posicon fuera de la matriz."<<endl;
             }else{
                 tab->setMatrix((Items*)jugador, x+1, y);
                 tab->setMatrix(new Items(0,x,y), x, y);
+
                 tab->printMatrix();
             }
 
@@ -80,7 +102,28 @@ int main(){
             }
 
         }else if(key == 's'){
-            if(((Items*)jugador)->getY()+1 == 12 ){
+
+            if(((Items*)jugadorbota)->getY()-1 == -1){
+                tab->setMatrix((Items*)jugadorbota, x+1, y);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+
+            if(((Items*)jugadorbota)->getY()+1 == 13){
+                tab->setMatrix((Items*)jugadorbota, x-1, y);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+
+            if(((Items*)jugadorbota)->getX()-1 == -1){
+                tab->setMatrix((Items*)jugadorbota, x, y-1);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+            
+            if(((Items*)jugadorbota)->getX()+1 == 13){
+                tab->setMatrix((Items*)jugadorbota, x, y-1);
+                tab->setMatrix(new Items(0,x,y), x, y);
+            }
+            
+            if(((Items*)jugador)->getY()+1 == 13 ){
                 cout<<"Posicon fuera de la matriz."<<endl;
             }else{
                 tab->setMatrix((Items*)jugador, x+1, y);
@@ -89,7 +132,7 @@ int main(){
             }
 
         }else if(key == 'd'){
-            if(((Items*)jugador)->getX()+1 == 12 ){
+            if(((Items*)jugador)->getX()+1 == 13 ){
                 cout<<"Posicon fuera de la matriz."<<endl;
             }else{
                 tab->setMatrix((Items*)jugador, x, y+1);
