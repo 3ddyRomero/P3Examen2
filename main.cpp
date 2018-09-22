@@ -41,25 +41,65 @@ int main(){
 
     cout<<"Para Mover Su Jugador."<<endl
         <<"Utilice Las teclas" 
-        <<"W (Arriba)"<<endl
+        <<endl<<"W (Arriba)"<<endl
         <<"A (Izquierda)"<<endl
         <<"S (Abajo)"<<endl
         <<"D (Derecha)"<<endl;
         cout<<"¡¡¡Los Movimientos solo pueden hacerse de uno en uno!!!"<<endl;
         cout<<"****Buena Suerte****"<<endl;
 
-    key = getch();
+    //key = getch();
 
     bool turno = false;
-    int opcion;
     
-    while(turno = false){
-        
 
 
+    while(!turno){
+        int opcion;
+    int x;
+    int y;
+        cout<<"Juegue"<<endl;
+        cin>>key;
 
+        if(key == 'w'){
+            if(((Items*)jugador)->getY()-1 == -1 ){
+                cout<<"Posicon fuera de la matriz."<<endl;
+            }else{
+                tab->setMatrix((Items*)jugador, x+1, y);
+                tab->setMatrix(new Items(0,x,y), x, y);
+                tab->printMatrix();
+            }
 
+        }else if(key == 'a'){
+            if(((Items*)jugador)->getX()-1 == -1 ){
+                cout<<"Posicon fuera de la matriz."<<endl;
+            }else{
+                tab->setMatrix((Items*)jugador, x, y-1);
+                tab->setMatrix(new Items(0,x,y), x, y);
+                tab->printMatrix();
+            }
 
+        }else if(key == 's'){
+            if(((Items*)jugador)->getY()+1 == 12 ){
+                cout<<"Posicon fuera de la matriz."<<endl;
+            }else{
+                tab->setMatrix((Items*)jugador, x+1, y);
+                tab->setMatrix(new Items(0,x,y), x, y);
+                tab->printMatrix();
+            }
+
+        }else if(key == 'd'){
+            if(((Items*)jugador)->getX()+1 == 12 ){
+                cout<<"Posicon fuera de la matriz."<<endl;
+            }else{
+                tab->setMatrix((Items*)jugador, x, y+1);
+                tab->setMatrix(new Items(0,x,y), x, y);
+                tab->printMatrix();
+            }
+
+        }/*else if(key != 'w' || key != 's' || key != 'a' || key != 'd' ){
+            cout<<"Tecla No Valida!!!"<<endl;
+        }*/
 
         cout<<"¿Seguir Jugando?"<<endl<<"Pulse:"<<endl
             <<"0--> NO"<<endl
@@ -68,6 +108,8 @@ int main(){
             if(opcion == 0){
             turno = true;
             }
+        
+        
     }
 
     return 0;
